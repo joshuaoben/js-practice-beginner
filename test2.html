@@ -3,18 +3,30 @@
 <head>
 	<title>Digital Clock</title>
 	<style>
-		#clock{
-			font:bold 24pt sans;
-			background:#ddf;
-			padding:10px;
+		body{
+			text-align: center;
+			background-color: rgba(0,0,0,0.2);
+			font-family: sans-serif;
+		}
+		#clock {
+			font:bold 24pt Monospace;
+			padding:20px;
 			border:solid black 2px;
 			border-radius: 10px;
+			margin:5px;
+			display: inline-block;
+		}
+		#wrapper{
+			text-align: center;
+			display: inline-block;
+			margin-bottom: 0 auto;
+			padding: 200px;
 		}
 	</style>
 	<script>
-		function displayTime(){
+		function displayTime() {
 			var elt = document.getElementById("clock");
-			var now = new new Date();
+			var now = new Date();
 			elt.innerHTML = now.toLocaleTimeString();
 			setTimeout(displayTime, 1000);
 		}
@@ -22,8 +34,11 @@
 	</script>
 </head>
 <body>
-	<h1>Digital Clock</h1>
-	<span id="clock"></span>
+	<div id="wrapper">
+		<h1>Digital Clock</h1>
+		<span id="clock"></span>
+	</div>
+	
 
 </body>
 </html>
