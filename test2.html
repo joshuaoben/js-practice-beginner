@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>First JS Test</title>
+	<title>Digital Clock</title>
 	<style>
-		.reveal * { display:none; }
-		.reveal *.handle{ display: block; }
+		#clock{
+			font:bold 24pt sans;
+			background:#ddf;
+			padding:10px;
+			border:solid black 2px;
+			border-radius: 10px;
+		}
 	</style>
 	<script>
-		window.onload = function(){
-			var elements = document.getElementsByClassName("reveal");
-			for (var i = 0; i < elements.length; i++) {
-				var elt = elements[i];
-				var title = elt.getElementsByClassName("handle")[0];
-				title.onclick = function(){
-					if (elt.className == "reveal") elt.className = "revealed";
-					else if (elt.className == "revealed") elt.className = "reveal";
-				}
-			}
-		};
+		function displayTime(){
+			var elt = document.getElementById("clock");
+			var now = new new Date();
+			elt.innerHTML = now.toLocaleTimeString();
+			setTimeout(displayTime, 1000);
+		}
+		window.onload = displayTime;
 	</script>
 </head>
 <body>
-	<div class="reveal">
-		<h1 class="handle">Click to Reveal Hidden Text</h1>
-		<p>This paragraph is hidden. It appears when you click on the title.</p>
-	</div>
+	<h1>Digital Clock</h1>
+	<span id="clock"></span>
 
 </body>
 </html>
